@@ -41,6 +41,7 @@ A principal finalidade é aprender e praticar Go, utilizando (e aprendendo) boas
 ## Rodando a api
 
 
+
 - Clone o repositório
 ```
   git clone https://github.com/gaia-j/go-bank-api 
