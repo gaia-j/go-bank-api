@@ -36,10 +36,9 @@ A principal finalidade é aprender e praticar Go, utilizando (e aprendendo) boas
 ## Notas
 
 - Mais uma vez, a ideia do projeto é apredizado, não pretendo nem de perto simular a complexidade de um banco real ou envolver de fato crypto e blockchains
-<br>
  - A ideia e o desenvolvimento são independentes, não tendo ligação com cursos ou vídeos como referência
-## Rodando a api
 
+## Rodando a api
 
 
 - Clone o repositório
