@@ -1,0 +1,5 @@
+go-api.exe
+/tmp
+/.idea
+.env
+.air.toml
