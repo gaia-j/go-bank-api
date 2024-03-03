@@ -3,3 +3,4 @@ go-api.exe
 /.idea
 .env
 .air.toml
+configs/compose-w-db.yaml
