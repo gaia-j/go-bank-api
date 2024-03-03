@@ -5,6 +5,7 @@ import (
 )
 
 func CreateUserAccount(userId int) error {
+
 	AccoutData := structs.CreateAccount{
 		Balance:    0,
 		BalanceBtc: 0,
@@ -16,7 +17,11 @@ func CreateUserAccount(userId int) error {
 	INSERT INTO account (users_id, balance, balance_btc, credit) 
 	VALUES ($1, $2, $3, $4)
 	`,
-		AccoutData.UserId, AccoutData.Balance, AccoutData.BalanceBtc, AccoutData.Credit)
+		AccoutData.UserId,
+		AccoutData.Balance,
+		AccoutData.BalanceBtc,
+		AccoutData.Credit,
+	)
 
 	if err != nil {
 		return err
