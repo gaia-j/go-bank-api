@@ -1,14 +1,9 @@
 # Go Bank Api
 
----
-
 Este repositório é uma API de um banco (fictício) que conta com contas de usuário, saldo fiduciário, crypto, transferências, cartões, depósitos e futuras ideias.
-
-
 
 ## Aprendizado
 
----
 
 A principal finalidade é aprender e praticar Go, utilizando (e aprendendo) boas práticas e seguindo o padrão RESTful.
 
@@ -22,7 +17,6 @@ A principal finalidade é aprender e praticar Go, utilizando (e aprendendo) boas
 
 ## Características
 
----
 - Contas de usuário
 - Saldo fiduciário
 - Crypto (BTC) (apenas estético, nada envolvendo blockchain)
@@ -33,7 +27,6 @@ A principal finalidade é aprender e praticar Go, utilizando (e aprendendo) boas
 
 ## Bibliotecas
 
----
 
 - Esta API usa [Gin](https://gin-gonic.com/) como web framework
 - [JWT](https://github.com/golang-jwt/jwt) para autenticação
@@ -42,12 +35,10 @@ A principal finalidade é aprender e praticar Go, utilizando (e aprendendo) boas
 
 ## Notas
 
----
 Mais uma vez, a ideia do projeto é apredizado, não pretendo nem de perto simular a complexidade de um banco real ou envolver de fato crypto e blockchains
 
 ## Rodando a api
 
----
 
 - Clone o repositório
 ```
@@ -96,16 +87,9 @@ atenção: Caso não use ou não deseja usar docker, precisará de um banco de d
 
 ## Build e Docs
 
----
-
 🚧🚧🚧🚧🚧🚧🚧🚧🚧
 
-
-
-
 ## Estrutura principal do projeto
-
-----
 
 Inicialmente, essa é a estrutura base que usarei de referência:
 ```bash
