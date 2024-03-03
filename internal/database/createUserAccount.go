@@ -1,26 +1,31 @@
 package database
 
 import (
+	"github.com/gaia-j/go-bank-api/internal/misc"
 	"github.com/gaia-j/go-bank-api/internal/structs"
 )
 
 func CreateUserAccount(userId int) error {
 
-	AccoutData := structs.CreateAccount{
-		Balance:    0,
-		BalanceBtc: 0,
-		Credit:     0,
-		UserId:     userId,
+	AccountAddress := misc.GenerateAccountAddress()
+
+	AccountData := structs.CreateAccount{
+		Balance:        0,
+		AccountAddress: AccountAddress,
+		BalanceBtc:     0,
+		Credit:         0,
+		UserId:         userId,
 	}
 
 	_, err := Db.Exec(`
-	INSERT INTO account (users_id, balance, balance_btc, credit) 
-	VALUES ($1, $2, $3, $4)
+	INSERT INTO account (user_id, account_address, balance, balance_btc, credit) 
+	VALUES ($1, $2, $3, $4, $5)
 	`,
-		AccoutData.UserId,
-		AccoutData.Balance,
-		AccoutData.BalanceBtc,
-		AccoutData.Credit,
+		AccountData.UserId,
+		AccountData.AccountAddress,
+		AccountData.Balance,
+		AccountData.BalanceBtc,
+		AccountData.Credit,
 	)
 
 	if err != nil {

@@ -18,7 +18,7 @@ func CreateAddress(userId int, userData structs.RegisterUser) error {
 	}
 
 	_, err := Db.Exec(`
-	INSERT INTO address (users_id, street, number, comp, city, state, cep, neighbor) 
+	INSERT INTO address (user_id, street, number, comp, city, state, cep, neighbor) 
 	VALUES ($1, $2, $3, $4, $5, $6, $7, $8)
 	`,
 		AddressData.UserId, AddressData.Street, AddressData.Number,

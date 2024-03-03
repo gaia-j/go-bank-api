@@ -2,7 +2,7 @@ package misc
 
 import "math/rand"
 
-func generateAccountAddress() string {
+func GenerateAccountAddress() string {
 
 	elegibleLetters := []byte("ABCDEFGHIJKLMNOPQRSTUVWXYZ")
 	elegibleNumbers := []byte("0123456789")
