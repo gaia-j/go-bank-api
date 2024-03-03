@@ -1,6 +1,7 @@
 package userRoutes
 
 import (
+	"context"
 	"fmt"
 	"github.com/gaia-j/go-bank-api/internal/database"
 	"github.com/gaia-j/go-bank-api/internal/structs"
@@ -31,7 +32,9 @@ func LoginUser(c *gin.Context) {
 		return
 	}
 
-	err := database.Db.QueryRow("SELECT id,email,password FROM users WHERE email = $1", loginData.Email).Scan(&userId, &userData.Email, &userData.Password)
+	err := database.Db.QueryRow(
+		context.Background(),
+		"SELECT id,email,password FROM users WHERE email = $1", loginData.Email).Scan(&userId, &userData.Email, &userData.Password)
 
 	if err != nil {
 		fmt.Println(err)

@@ -1,17 +1,19 @@
 package database
 
 import (
-	"database/sql"
+	"context"
 	"fmt"
+	"github.com/jackc/pgx/v5"
 	"github.com/joho/godotenv"
 	_ "github.com/lib/pq"
 	"os"
 	"strconv"
 )
 
-var Db *sql.DB
+var Db *pgx.Conn
 
 func ConnectDatabase() {
+
 	err := godotenv.Load(".env")
 
 	if err != nil {
@@ -25,16 +27,15 @@ func ConnectDatabase() {
 	password := os.Getenv("DB_PASSWORD")
 	dbName := os.Getenv("DB_NAME")
 
-	psqlSetup := fmt.Sprintf("host=%s port=%d user=%s dbname=%s password=%s sslmode=disable",
-		host, port, user, dbName, password)
+	dbUrl := fmt.Sprintf("postgres://%s:%s@%s:%d/%s?sslmode=disable", user, password, host, port, dbName)
 
-	db, errSql := sql.Open("postgres", psqlSetup)
+	conn, err := pgx.Connect(context.Background(), dbUrl)
 
-	if errSql != nil {
+	if err != nil {
 		fmt.Println("There is an error while connecting to the database ", err)
 		panic(err)
 	} else {
-		Db = db
+		Db = conn
 		fmt.Println("Successfully connected to database!")
 	}
 

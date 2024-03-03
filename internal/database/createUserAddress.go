@@ -1,7 +1,7 @@
 package database
 
 import (
-	"fmt"
+	"context"
 	"github.com/gaia-j/go-bank-api/internal/structs"
 )
 
@@ -17,7 +17,7 @@ func CreateAddress(userId int, userData structs.RegisterUser) error {
 		Cep:      userData.Cep,
 	}
 
-	_, err := Db.Exec(`
+	_, err := Db.Exec(context.Background(), `
 	INSERT INTO address (user_id, street, number, comp, city, state, cep, neighbor) 
 	VALUES ($1, $2, $3, $4, $5, $6, $7, $8)
 	`,
@@ -27,7 +27,6 @@ func CreateAddress(userId int, userData structs.RegisterUser) error {
 	if err != nil {
 		return err
 	}
-	fmt.Println(AddressData)
 
 	return nil
 
