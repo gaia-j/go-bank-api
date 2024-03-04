@@ -2,13 +2,16 @@ package database
 
 import (
 	"context"
-	"github.com/gaia-j/go-bank-api/internal/misc"
 	"github.com/gaia-j/go-bank-api/internal/structs"
 )
 
 func CreateUserAccount(userId int) error {
 
-	AccountAddress := misc.GenerateAccountAddress()
+	AccountAddress, errAddress := GenerateUniqueAccountAddress()
+
+	if errAddress != nil {
+		return errAddress
+	}
 
 	AccountData := structs.CreateAccount{
 		Balance:        0,
