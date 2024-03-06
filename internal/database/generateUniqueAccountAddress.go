@@ -16,12 +16,11 @@ func generateAccountAddress() (string, error) {
 
 	for i := 0; i < 9; i++ {
 
-		randomLetter := rand.Intn(len(elegibleLetters))
-		randomNumber := rand.Intn(len(elegibleNumbers))
-
 		if i < 3 || i > 7 {
+			randomLetter := rand.Intn(len(elegibleLetters))
 			generatedAddressBytes = append(generatedAddressBytes, elegibleLetters[randomLetter])
 		} else {
+			randomNumber := rand.Intn(len(elegibleNumbers))
 			generatedAddressBytes = append(generatedAddressBytes, elegibleNumbers[randomNumber])
 		}
 	}
